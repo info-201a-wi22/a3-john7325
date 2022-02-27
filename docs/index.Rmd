@@ -8,6 +8,7 @@ output: html_document
 ```{r, setup, include = FALSE}
 library("tidyverse")
 library("knitr")
+library("maps")
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 knitr::opts_knit$set(root.dir = "../source")
 ```
@@ -16,6 +17,7 @@ knitr::opts_knit$set(root.dir = "../source")
 source("analysis.R")
 source("trend.R")
 source("chart.R")
+source("map.R")
 ```
 
 # Report
@@ -83,3 +85,8 @@ visual, there seems to be a negative correlation between the black jail
 proportion and the black population. As one increases the other decreases. 
 
 ## Map
+```{r, map, echo = FALSE}
+generate_map(data)
+```
+
+I included this chart because in the previous sections, my analysis solely focused on Washington state data. I was curious as to how the black jail proportion of Washington state compared to the other states. Looking at the chart, you can see that all the states that have the highest black jail population proportions are on the eastern side of the country. Those that have unavailable data are on are painted gray. 
