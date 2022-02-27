@@ -14,13 +14,19 @@ knitr::opts_knit$set(root.dir = "../source")
 
 ```{r, sources, include = FALSE}
 source("analysis.R")
+source("trend.R")
 ```
 
 # Report
 <b>Proportion of Population is Asian American/Pacific Islander:</b>
 
 ## Introduction
-I grew up in a very protected environment. I was taught that being Asian meant that I had to behave, be respectful, and be smarter than those around me. I was also taught that certain ethnic groups should be avoided, such as blacks, since they are believed to be thieves and criminals. Now that I am older, I am starting to question the values that I have been taught since I was young. That is why I am curious about how the jail population proportions could differ for Asian Americans/Pacific Islanders and African Americans in Washington State.
+Being of asian descent and living in washington state all my life I am curious 
+about how the proportion of jail population differs for Asian Americans/Pacific
+Islanders and Blacks in Washington State. To answer my questions, I will analyze
+the incarceration dataset; mainly looking at: total population per county, 
+total Black and AAPI population per county, total jail population per county,
+and Black and AAPI jail population. 
 
 ## Summary
 ```{r, summary, echo = FALSE}
@@ -31,20 +37,36 @@ avg_black_jail_prop <- average_black_jail_prop(washington_data)
 highest_black_jail_prop <- highest_black_jail_prop(washington_data)
 highest_aapi_jail_prop <- highest_aapi_jail_prop(washington_data)
 ```
-<b>Average Proportion of Total Population being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>Average Proportion of Total Population being Asian American/Pacific Islander 
+vs Black (Per County in Washington State)</b><br>
 <b>AAPI:</b> `r avg_aapi_prop`<br>
 <b>Black:</b> `r avg_black_prop`<br>
 
-<b>Average Proportion of Jail Population being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>Average Proportion of Jail Population being Asian American/Pacific Islander 
+vs Black (Per County in Washington State)</b><br>
 <b>AAPI: </b> `r avg_aapi_jail_prop`<br>
 <b>Black:</b> `r avg_black_jail_prop`<br>
 
-<b>Highest Proportion of Jail Proportion being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>Highest Proportion of Jail Proportion being Asian American/Pacific Islander 
+vs Black (Per County in Washington State)</b><br>
 <b>AAPI: </b> `r highest_aapi_jail_prop`<br>
 <b>Black: </b> `r highest_black_jail_prop`<br>
 
 ## Trends
+```{r, trends, echo = FALSE}
+filtered_data <- filter_data(data) 
+generate_plot_black_pop(filtered_data)
+```
+
+This chart allows us to easily see the change in Black and 
+Asian/Pacific Islander jail populations in King County over time. 
+From the visual, we can see that the Black jail population is much greater and
+grows more rapidly than the Asian/Pacific Islander jail population. Looking at 
+spread in the data, it seems that the Asian/Pacific Islander jail population is
+growing at a more steady rate whereas the Black jail population increases and
+decreases more sporadically.
 
 ## Chart
+
 
 ## Map
