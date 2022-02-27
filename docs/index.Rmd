@@ -1,0 +1,50 @@
+---
+author: "John Nguyen"
+date: "02/26/2022"
+title: "Assignment 3: Data Visualization"
+output: html_document
+---
+
+```{r, setup, include = FALSE}
+library("tidyverse")
+library("knitr")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = "../source")
+```
+
+```{r, sources, include = FALSE}
+source("analysis.R")
+```
+
+# Report
+<b>Proportion of Population is Asian American/Pacific Islander:</b>
+
+## Introduction
+I grew up in a very protected environment. I was taught that being Asian meant that I had to behave, be respectful, and be smarter than those around me. I was also taught that certain ethnic groups should be avoided, such as blacks, since they are believed to be thieves and criminals. Now that I am older, I am starting to question the values that I have been taught since I was young. That is why I am curious about how the jail population proportions could differ for Asian Americans/Pacific Islanders and African Americans in Washington State.
+
+## Summary
+```{r, summary, echo = FALSE}
+avg_aapi_prop <- average_aapi_prop(washington_data)
+avg_black_prop <- average_black_prop(washington_data)
+avg_aapi_jail_prop <- average_aapi_jail_prop(washington_data)
+avg_black_jail_prop <- average_black_jail_prop(washington_data)
+highest_black_jail_prop <- highest_black_jail_prop(washington_data)
+highest_aapi_jail_prop <- highest_aapi_jail_prop(washington_data)
+```
+<b>Average Proportion of Total Population being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>AAPI:</b> `r avg_aapi_prop`<br>
+<b>Black:</b> `r avg_black_prop`<br>
+
+<b>Average Proportion of Jail Population being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>AAPI: </b> `r avg_aapi_jail_prop`<br>
+<b>Black:</b> `r avg_black_jail_prop`<br>
+
+<b>Highest Proportion of Jail Proportion being Asian American/Pacific Islander vs Black (Washington State)</b><br>
+<b>AAPI: </b> `r highest_aapi_jail_prop`<br>
+<b>Black: </b> `r highest_black_jail_prop`<br>
+
+## Trends
+
+## Chart
+
+## Map
