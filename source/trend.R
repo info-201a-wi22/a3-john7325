@@ -1,6 +1,6 @@
 # library("tidyverse")
 
-jail_pop_data <- function(data) {
+filter_jail_pop <- function(data) {
   temp <- data %>%
     filter(state == "WA") %>%
     filter(!is.na(black_jail_pop)) %>%
